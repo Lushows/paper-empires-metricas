@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper Empires Publisher · TikTok</title>
+<style>
+  body{margin:0;background:#fbfaf6;color:#1b1d22;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:620px;margin:0 auto;padding:56px 20px}
+  .m{color:#5b6270;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Paper Empires Publisher</h1>
+  <p id="t">Conectando con la herramienta local… / Connecting to the local tool…</p>
+  <p class="m">Si no pasa nada, abre la herramienta en tu ordenador y vuelve a intentarlo. /
+  If nothing happens, open the tool on your computer and try again.</p>
+</main>
+<script>
+  // TikTok devuelve aquí ?code=…&state=… . La herramienta corre en el ordenador del propietario
+  // (http://localhost:8790): esta página solo le pasa los mismos parámetros. No guarda nada.
+  var q = window.location.search;
+  if (q && q.indexOf("code=") > -1) {
+    window.location.replace("http://localhost:8790/tiktok/callback" + q);
+  } else {
+    document.getElementById("t").textContent = "Esta página solo se usa al conectar la cuenta de TikTok. / This page is only used when connecting the TikTok account.";
+  }
+</script>
+</body>
+</html>
